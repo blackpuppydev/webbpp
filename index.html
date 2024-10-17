@@ -115,13 +115,6 @@
             object-fit: cover; 
         }
 
-        
-        @media (max-width: 768px) {
-            .slides img {
-                width: 100%; 
-            }
-        }
-
 
         .card-container {
             display: flex;
@@ -175,6 +168,34 @@
             color: #ffffff; 
         }
 
+
+        .container-about {
+            display: flex; /* ใช้ flexbox เพื่อจัดแนว div */
+            align-items: center; /* จัดแนวแนวตั้งให้ตรงกลาง */
+            border: 1px solid #ddd; /* เส้นขอบ */
+            border-radius: 10px; /* มุมโค้ง */
+            overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+        }
+
+        .image-about {
+            flex: 1; /* ให้ภาพขยายเต็มพื้นที่ */
+            max-width: 50%; /* จำกัดความกว้างไม่ให้เกิน 50% */
+        }
+
+        .image-about img {
+            width: 100%; /* ทำให้ภาพขยายเต็ม div */
+            height: auto; /* ให้ความสูงปรับอัตโนมัติ */
+        }
+
+        .text-about {
+            flex: 1; /* ให้ข้อความขยายเต็มพื้นที่ */
+            padding: 20px; /* เพิ่ม padding ให้ข้อความ */
+            background-color: #f9f9f9; /* พื้นหลังของข้อความ */
+        }
+
+        
+
+
         @media (max-width: 768px) {
             .slides img {
                 width: 100%; 
@@ -187,6 +208,14 @@
 
             .tab-container {
                 flex-direction: column; 
+            }
+
+            .container-about {
+                flex-direction: column; 
+            }
+
+            .image-about, .text-about {
+                max-width: 100%; 
             }
         }
 
@@ -276,8 +305,18 @@
         <br><br>
 
         
-        <div class="about-image">
+        <!-- <div class="about-image">
             <img src="assets/images/about-us.png" alt="เกี่ยวกับเรา" style="width:100%; height:auto; border-radius: 10px;">
+        </div> -->
+
+        <br><br>
+        <div class="container-about">
+            <div class="image-about">
+                <img src="assets/images/graduate.jpg" alt="Sample Image">
+            </div>
+            <div class="text-about">
+                <p>ที่ Blackpuppystudio เราเชื่อว่า "ทุกภาพคือความทรงจำ"ไม่ว่าจะเป็นการถ่ายภาพพอร์ตเทรตที่สะท้อนเอกลักษณ์เฉพาะตัวของคุณหรือการเก็บภาพบรรยากาศในวันสำคัญอย่างพิธีรับปริญญา งานแต่งงานหรืองานอีเวนต์ต่างๆ ทีมงานมืออาชีพของเราพร้อมสร้างสรรค์ทุกช็อตให้ออกมาสมบูรณ์แบบที่สุดด้วยประสบการณ์การถ่ายภาพที่หลากหลายเรามุ่งเน้นการสร้างภาพที่มีชีวิตชีวา เต็มไปด้วยอารมณ์และรายละเอียดที่สวยงามเพื่อให้คุณเก็บรักษาช่วงเวลาสำคัญไว้ในแบบที่ดีที่สุด เรายินดีให้บริการถ่ายภาพในทุกรูปแบบที่คุณต้องการ พร้อมทั้งยังสามารถปรับการถ่ายภาพให้เหมาะสมกับความต้องการเฉพาะบุคคล เพื่อให้ทุกภาพที่คุณได้รับล้ำค่าไปตลอดกา</p>
+            </div>
         </div>
 
 
