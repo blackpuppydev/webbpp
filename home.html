@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> 
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blackpuppystudio รับถ่ายภาพ</title>
+    <style>
+        body {
+            font-family: "Inter";
+            margin: 25px;
+        }
+
+        h1, p {
+            text-align: center;
+            font-family: "Prompt";
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity 1s ease-in, transform 1s ease-in; 
+        }
+
+        h1.visible, p.visible {
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        .about-image {
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity 1s ease-in, transform 1s ease-in;
+        }
+
+        .about-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-container {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+
+        .logo {
+            width: 300px; 
+            height: 200px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 100%; 
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        .tab {
+            padding: 14px 20px;
+            cursor: pointer;
+            text-align: center;
+            flex: none;
+            border: none;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+
+        
+        .tab.active {
+            color: black;
+            font-weight: bold;
+        }
+
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+
+        .slider {
+            position: relative;
+            width: 100%; 
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden; 
+        }
+
+        .slides {
+            display: flex; 
+            transition: transform 0.5s ease-in-out; 
+            width: 300%; 
+        }
+
+        .slides img {
+            width: 33.33%; 
+            height: auto; 
+            object-fit: cover; 
+        }
+
+        
+        @media (max-width: 768px) {
+            .slides img {
+                width: 100%; 
+            }
+        }
+
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px; 
+            margin-top: 20px; 
+        }
+
+        .card {
+            background-color: #1E1E1E;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 20px); 
+            overflow: hidden; 
+            transition: transform 0.2s, opacity 1s ease-in; 
+            opacity: 0; 
+            transform: translateY(30px);
+            height: 520px;
+        }
+
+        .card.visible {
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        .card:hover {
+            transform: scale(1.05); 
+        }
+
+        .card img {
+            width: 100%; 
+            height: 450px; 
+            object-fit: cover; 
+        }
+
+        .card-content {
+            padding: 15px;           
+            justify-content: center;     
+            align-items: center;  
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 0 0 10px; 
+            color: #ffffff;
+        }
+
+        .card-description {
+            color: #ffffff; 
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 20px); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tab Bar -->
+    <div class="tab-container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="assets/images/logo-1.png" alt="Logo">
+        </div>
+
+        <div class="tab active" onclick="window.location.href='home.html'">HOME</div>
+        <div class="tab" onclick="window.location.href='price.html'">PRICE</div>
+        <div class="tab" onclick="window.location.href='contact.html'">CONTACT US</div>
+
+    </div>
+
+    <!-- Content of Tabs -->
+    <div id="home" class="tab-content active">
+        
+
+        <!-- Image Slider -->
+        <div class="slider">
+            <div class="slides">
+                <img src="assets/images/slide1.png" alt="Slide 1">
+                <img src="assets/images/slide2.png" alt="Slide 2">
+                <img src="assets/images/slide3.png" alt="Slide 3">
+            </div>
+        </div>
+    
+        <br><br>
+        <h1 class="fade-up">ถ่ายภาพหลากหลายประเภท</h1>
+        <p class="fade-up">บริการถ่ายภาพแบบครบวงจร ทั้งถ่ายภาพพอร์ตเทรตที่สะท้อนบุคลิกภาพที่ดึงดูดใจลูกค้า </p>
+        <p class="fade-up">ไปจนถึงการเก็บบรรยากาศในงานอีเวนต์สำคัญ ทุกช็อต ทุกภาพ เราจะทำให้ทุกช่วงเวลามีคุณค่าและความทรงจำที่งดงาม</p><br><br>
+
+
+        <!-- Card View -->
+        <div class="card-container">
+            <div class="card">
+                <img src="assets/images/graduate.jpg" alt="Card 1">
+                <div class="card-content">
+                    <p class="card-title">รับปริญญา</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/pf.jpg" alt="Card 2">
+                <div class="card-content">
+                    <p class="card-title">โปรไฟล์</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/monk.jpg" alt="Card 3">
+                <div class="card-content">
+                    <p class="card-title">งานบวช</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/wedding.jpg" alt="Card 4">
+                <div class="card-content">
+                    <p class="card-title">งานแต่งงาน</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/child.jpg" alt="Card 5">
+                <div class="card-content">
+                    <p class="card-title">งานปัจฉิม</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="assets/images/other.jpg" alt="Card 6">
+                <div class="card-content">
+                    <p class="card-title">อื่นๆ</p>
+                </div>
+            </div>
+        </div>
+
+        
+        <br><br>
+
+        
+        <div class="about-image">
+            <img src="assets/images/about-us.png" alt="เกี่ยวกับเรา" style="width:100%; height:auto; border-radius: 10px;">
+        </div>
+
+
+    </div>
+
+    <script>
+        
+        
+        window.addEventListener('scroll', function() {
+            const elements = [document.querySelector('h1'), ...document.querySelectorAll('p'), ...document.querySelectorAll('.card'),document.querySelector('.about-image')];
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top; 
+
+                
+                if (position < window.innerHeight && position >= 0) {
+                    element.classList.add('visible'); 
+                }
+            });
+        });
+
+        
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+
+            // เปลี่ยนตำแหน่งการแสดงผลของสไลด์
+            slideIndex++;
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0; // กลับไปที่สไลด์แรกเมื่อถึงสุดท้าย
+            }
+
+            // ปรับตำแหน่งของ slides
+            slides.style.transform = `translateX(-${slideIndex * (100 / totalSlides)}%)`;
+
+            // ตั้งค่าให้เรียกใช้งานฟังก์ชันอีกครั้งทุก 3 วินาที
+            setTimeout(showSlides, 3000);
+        }
+
+        // เรียกใช้งานฟังก์ชันเมื่อโหลดหน้า
+        window.onload = showSlides;
+
+
+
+
+    </script>
+
+</body>
+</html>
