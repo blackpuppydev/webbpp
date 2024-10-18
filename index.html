@@ -123,6 +123,28 @@
             object-fit: cover; 
         }
 
+        .dot-container {
+            position: absolute;
+            bottom: 20px;  /* ปรับตำแหน่ง dot ใต้รูปภาพ */
+            width: 100%;
+            text-align: center;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+
 
         .card-container {
             display: flex;
@@ -204,6 +226,9 @@
             background-color: #f9f9f9; 
         }
 
+    
+
+
         
         footer {
             text-align: center;
@@ -272,7 +297,18 @@
                 <img src="assets/images/slide2.png" alt="Slide 2">
                 <img src="assets/images/slide3.png" alt="Slide 3">
             </div>
+
+            <!-- Dot Indicators -->
+            <div class="dot-container">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
         </div>
+
+        
+
     
         <br><br>
         <h1 class="fade-up">ถ่ายภาพหลากหลายประเภท</h1>
@@ -365,21 +401,25 @@
         function showSlides() {
             const slides = document.querySelector('.slides');
             const totalSlides = slides.children.length;
+            const dots = document.querySelectorAll('.dot');
 
-            // เปลี่ยนตำแหน่งการแสดงผลของสไลด์
+            dots.forEach(dot => dot.classList.remove('active'));
+
             slideIndex++;
             if (slideIndex >= totalSlides) {
-                slideIndex = 0; // กลับไปที่สไลด์แรกเมื่อถึงสุดท้าย
+                slideIndex = 0; 
             }
 
-            // ปรับตำแหน่งของ slides
             slides.style.transform = `translateX(-${slideIndex * (100 / totalSlides)}%)`;
 
-            // ตั้งค่าให้เรียกใช้งานฟังก์ชันอีกครั้งทุก 3 วินาที
+           
+            dots[slideIndex].classList.add('active');
+
+            
             setTimeout(showSlides, 3000);
         }
 
-        // เรียกใช้งานฟังก์ชันเมื่อโหลดหน้า
+        
         window.onload = showSlides;
 
 
