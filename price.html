@@ -18,7 +18,12 @@
             padding: 0;
         }
 
-        h1, p ,h2 {
+        h1 {
+            text-align: center;
+            font-family: "Prompt";
+        }
+
+        p ,h2 {
             text-align: center;
             font-family: "Prompt";
             opacity: 0; 
@@ -26,7 +31,7 @@
             transition: opacity 1s ease-in, transform 1s ease-in; 
         }
 
-        h1.visible, p.visible ,h2.visible{
+        p.visible ,h2.visible{
             opacity: 1; 
             transform: translateY(0); 
         }
@@ -50,8 +55,16 @@
 
         .tab {
             padding: 5px 15px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, font-size 0.3s ease;
             color: #FEF3EF;
+            font-size: 1em; 
+            cursor: pointer;
+        }
+
+        .tab:hover {
+            font-weight: bold;   
+            font-size: 1.2em; 
+            padding: 10px 20px; 
         }
     
             
@@ -162,7 +175,7 @@
 
     <br><br><br><br>
     <h1>บริการถ่ายภาพที่เก็บทุกความทรงจำของคุณ</h1>
-    <p>ให้เราเป็นส่วนหนึ่งในการบันทึกความทรงจำที่ดีที่สุดในชีวิตของคุณ ด้วยบริการถ่ายภาพที่พร้อมตอบสนองความต้องการและความหวังของคุณ</p>
+    <p class="no-fade">ให้เราเป็นส่วนหนึ่งในการบันทึกความทรงจำที่ดีที่สุดในชีวิตของคุณ ด้วยบริการถ่ายภาพที่พร้อมตอบสนองความต้องการและความหวังของคุณ</p>
 
     <!-- Card View -->
     <div class="card">
@@ -254,7 +267,7 @@
 
     <script>
         window.addEventListener('scroll', function() {
-            const elements = [document.querySelector('h1'), ...document.querySelectorAll('h2'), ...document.querySelectorAll('p'), ...document.querySelectorAll('.card')];
+            const elements = [document.querySelector('h1'), ...document.querySelectorAll('h2'), ...document.querySelectorAll('p:not(.fade)'), ...document.querySelectorAll('.card')];
             elements.forEach(element => {
                 const position = element.getBoundingClientRect().top; 
 

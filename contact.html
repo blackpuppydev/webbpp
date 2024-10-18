@@ -65,8 +65,16 @@
     
             .tab {
                 padding: 5px 15px;
-                transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease, font-size 0.3s ease;
                 color: #FEF3EF;
+                font-size: 1em; 
+                cursor: pointer;
+            }
+
+            .tab:hover {
+                font-weight: bold;   
+                font-size: 1.2em; 
+                padding: 10px 20px; 
             }
     
             
@@ -169,28 +177,28 @@
     
     
             .container-about {
-                display: flex; /* ใช้ flexbox เพื่อจัดแนว div */
-                align-items: center; /* จัดแนวแนวตั้งให้ตรงกลาง */
-                border: 1px solid #ddd; /* เส้นขอบ */
-                border-radius: 10px; /* มุมโค้ง */
-                overflow: hidden; /* ซ่อนเนื้อหาที่เกิน */
+                display: flex; 
+                align-items: center;
+                border: 1px solid #ddd; 
+                border-radius: 10px; 
+                overflow: hidden; 
                 margin: 0px 30px;
             }
     
             .image-about {
-                flex: 1; /* ให้ภาพขยายเต็มพื้นที่ */
-                max-width: 50%; /* จำกัดความกว้างไม่ให้เกิน 50% */
+                flex: 1; 
+                max-width: 50%; 
             }
     
             .image-about img {
-                width: 100%; /* ทำให้ภาพขยายเต็ม div */
-                height: auto; /* ให้ความสูงปรับอัตโนมัติ */
+                width: 100%; 
+                height: auto; 
             }
     
             .text-about {
-                flex: 1; /* ให้ข้อความขยายเต็มพื้นที่ */
-                padding: 20px; /* เพิ่ม padding ให้ข้อความ */
-                background-color: #f9f9f9; /* พื้นหลังของข้อความ */
+                flex: 1; 
+                padding: 20px; 
+                background-color: #f9f9f9;
             }
     
             

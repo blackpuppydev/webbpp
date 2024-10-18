@@ -65,30 +65,39 @@
     
             .tab {
                 padding: 5px 15px;
-                transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease, font-size 0.3s ease;
                 color: #FEF3EF;
+                font-size: 1em; 
+                cursor: pointer;
             }
-    
+
+            .tab:hover {
+                font-weight: bold;   
+                font-size: 1.2em; 
+                padding: 10px 20px; 
+            }
+
             
             .tab.active {
                 color: #FEF3EF;
                 font-weight: bold;   
             }
-    
+
             
             .tab-content {
                 background-color: #fff;
             }
-    
+
             .tab-content.active {
                 display: block;
             }
-    
+
             .tab-container {
                 display: flex;
                 align-items: center;
                 background-color: #1E1E1E;
             }
+
     
     
     
